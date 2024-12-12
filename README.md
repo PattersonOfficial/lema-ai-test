@@ -22,7 +22,7 @@ The server should now be accessible at `http://localhost:3001`.
 1. Clone the repository.
 2. Navigate into the `client` directory.
 3. Install dependencies with `npm install`.
-4. Set environment variables in a `.env.local` file (see `.env.local.example`).
+4. Set environment variables in a `.env` file (see `.env.local.example`).
 5. Start the development server with `npm run dev`.
 6. Build the client side with `npm run build`.
 
@@ -33,10 +33,15 @@ The client should now be accessible at `http://localhost:5173`.
 ```
 project-root/
 ├── .gitignore
-│   └── settings.json
+├── README.md
 ├── backend/
+│   ├── .DS_Store
 │   ├── config/
 │   │   └── default.json
+│   ├── logger.ts
+│   ├── nodemon.json
+│   ├── package.json
+│   ├── README.md
 │   ├── src/
 │   │   ├── db/
 │   │   │   ├── connection.ts
@@ -44,60 +49,19 @@ project-root/
 │   │   │   │   ├── posts.ts
 │   │   │   │   ├── query-templates.ts
 │   │   │   │   └── types.ts
-│   │   │   └── users/
-│   │   │       ├── query-templates.ts
-│   │   │       ├── types.ts
-│   │   │       └── users.ts
+│   │   │   ├── users/
+│   │   │   │   ├── query-templates.ts
+│   │   │   │   ├── types.ts
+│   │   │   │   └── users.ts
+│   │   ├── index.ts
 │   │   ├── routes/
 │   │   │   ├── posts.ts
 │   │   │   └── users.ts
-│   │   └── index.ts
-│   ├── .gitignore
-│   ├── nodemon.json
-│   ├── package.json
-│   ├── README.md
-│   └── tsconfig.json
+│   │   ├── utils/
+│   │   │   └── logger.ts
+│   ├── tsconfig.json
 ├── client/
-│   ├── **mocks**/
-│   │   └── fileMock.js
-│   ├── public/
-│   ├── src/
-│   │   ├── assets/
-│   │   │   ├── icons/
-│   │   │   │   ├── AddCircleIcon.tsx
-│   │   │   │   ├── ArrowIcon.tsx
-│   │   │   │   └── DeleteIcon.tsx
-│   │   │   └── index.ts
-│   │   ├── components/
-│   │   │   ├── Loader.tsx
-│   │   │   ├── NewPostCard.tsx
-│   │   │   ├── Pagination.tsx
-│   │   │   ├── PostCard.tsx
-│   │   │   ├── PostFormModal.tsx
-│   │   │   └── index.ts
-│   │   ├── hooks/
-│   │   │   ├── usePosts.ts
-│   │   │   └── useUsers.ts
-│   │   ├── pages/
-│   │   │   ├── UserPosts.tsx
-│   │   │   ├── Users.tsx
-│   │   │   └── index.ts
-│   │   ├── services/
-│   │   │   ├── api.ts
-│   │   │   └── index.ts
-│   │   ├── tests/
-│   │   │   └── Pagination.test.tsx
-│   │   ├── types/
-│   │   │   ├── formData.ts
-│   │   │   ├── posts.ts
-│   │   │   ├── svg.d.ts
-│   │   │   └── users.ts
-│   │   ├── App.css
-│   │   ├── App.tsx
-│   │   ├── index.css
-│   │   ├── main.tsx
-│   │   ├── setupTests.ts
-│   │   └── vite-env.d.ts
+│   ├── .DS_Store
 │   ├── .env
 │   ├── .env.local.example
 │   ├── .gitignore
@@ -108,11 +72,53 @@ project-root/
 │   ├── jest.setup.js
 │   ├── package.json
 │   ├── postcss.config.js
+│   ├── public/
 │   ├── README.md
+│   ├── src/
+│   │   ├── App.css
+│   │   ├── App.tsx
+│   │   ├── assets/
+│   │   │   ├── icons/
+│   │   │   │   ├── addCircle.svg
+│   │   │   │   ├── arrow.svg
+│   │   │   │   └── delete.svg
+│   │   │   └── index.ts
+│   │   ├── components/
+│   │   │   ├── index.ts
+│   │   │   ├── Loader.tsx
+│   │   │   ├── NewPostCard.tsx
+│   │   │   ├── Pagination.tsx
+│   │   │   ├── PostCard.tsx
+│   │   │   ├── PostFormModal.tsx
+│   │   ├── hooks/
+│   │   │   ├── usePosts.ts
+│   │   │   ├── useUsers.ts
+│   │   ├── index.css
+│   │   ├── main.tsx
+│   │   ├── pages/
+│   │   │   ├── index.ts
+│   │   │   ├── UserPosts.tsx
+│   │   │   ├── Users.tsx
+│   │   ├── services/
+│   │   │   ├── api.ts
+│   │   │   ├── index.ts
+│   │   ├── setupTests.ts
+│   │   ├── tests/
+│   │   │   ├── Pagination.test.tsx
+│   │   │   ├── PostFormModal.test.tsx
+│   │   ├── types/
+│   │   │   ├── formData.ts
+│   │   │   ├── posts.ts
+│   │   │   ├── svg.d.ts
+│   │   │   ├── users.ts
+│   │   ├── vite-env.d.ts
 │   ├── tailwind.config.js
 │   ├── tsconfig.app.json
 │   ├── tsconfig.json
 │   ├── tsconfig.node.json
-│   └── tsconfig.test.json
-├── README.md
+│   ├── tsconfig.test.json
+│   ├── vercel.json
+│   ├── vite.config.d.ts
+│   ├── vite.config.js
+│   ├── vite.config.ts
 ```
