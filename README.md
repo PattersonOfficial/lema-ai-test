@@ -25,6 +25,7 @@ The server should now be accessible at `http://localhost:3001`.
 4. Set environment variables in a `.env` file (see `.env.local.example`).
 5. Start the development server with `npm run dev`.
 6. Build the client side with `npm run build`.
+7. Test the components with `npm run test`
 
 The client should now be accessible at `http://localhost:5173`.
 
