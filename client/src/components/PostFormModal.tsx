@@ -119,7 +119,7 @@ const PostFormModal = ({
       className='flex items-center justify-center fixed inset-0 bg-black bg-opacity-30 z-10'
       onClick={handleClose}>
       <div
-        className='bg-white w-11/12 md:w-1/2 mx-auto rounded-lg shadow-lg p-4'
+        className='bg-white w-11/12 md:w-1/2 max-w-[500px] mx-auto rounded-lg shadow-lg p-4'
         onClick={(e) => e.stopPropagation()}>
         <div className='space-y-6 text-left'>
           <h1 className='text-black'>{isEditing ? 'Edit Post' : 'New Post'}</h1>

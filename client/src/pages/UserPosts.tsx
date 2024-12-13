@@ -70,7 +70,7 @@ const UserPosts = () => {
             </span>
           </div>
         </div>
-        <div className='grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-6'>
+        <div className='grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6'>
           <NewPostCard
             onClick={() =>
               setOpenPostForm({
