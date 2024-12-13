@@ -44,7 +44,7 @@ const UserPosts = () => {
   }
 
   return (
-    <>
+    <div className='flex justify-center items-center'>
       <PostFormModal
         isOpen={openPostForm.isOpen}
         onClose={() =>
@@ -53,7 +53,7 @@ const UserPosts = () => {
         isEditing={openPostForm.isEditting}
         initialData={openPostForm.initialData}
       />
-      <div className='flex flex-col gap-6 text-[#535862] sm:px-10 md:px-32 py-4 sm:py-10'>
+      <div className='flex justify-center flex-col gap-6 text-[#535862] sm:px-10 md:px-32 py-4 sm:py-10 max-w-[1000px]'>
         <div className='flex flex-col gap-4 text-black text-left'>
           <button
             className='flex gap-1 items-center'
@@ -91,7 +91,7 @@ const UserPosts = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
