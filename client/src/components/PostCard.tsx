@@ -24,7 +24,9 @@ const PostCard = ({ id, title, content, onEdit }: PostCardProps) => {
           <img src={DeleteIcon} alt='delete' />
         </button>
       </div>
-      <h1 className='text-lg font-medium line-clamp-2 break-all'>{title}</h1>
+      <h1 className='text-lg font-medium line-clamp-2 break-all pr-[21px]'>
+        {title}
+      </h1>
       <p className='text-sm leading-normal line-clamp-[8] break-all'>
         {content}
       </p>

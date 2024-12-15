@@ -39,14 +39,14 @@ const Users = () => {
     <div className='flex flex-col items-center text-left  py-4 md:py-10'>
       <div className='space-y-6 '>
         <h1 className='text-black font-medium text-[60px]'>Users</h1>
-        <div className='border rounded-lg '>
-          <table className='  text-xs text-[#535862] w-full'>
+        <div className='border rounded-lg w-[400px] sm:w-auto overflow-auto'>
+          <table className='  text-xs text-[#535862] w-full '>
             <thead>
               <tr>
-                <th className='px-[18px] md:px-6 py-3 font-normal  w-[124px] max-w-[124px] md:w-[200px]'>
+                <th className='px-[18px] md:px-6 py-3 font-normal  sm:w-[124px] max-w-[124px] md:w-[200px]'>
                   Full Name
                 </th>
-                <th className='px-[18px] md:px-6 py-3 font-normal  w-[124px] md:w-[264px]'>
+                <th className='px-[18px] md:px-6 py-3 font-normal  sm:w-[124px] md:w-[264px]'>
                   Email Address
                 </th>
                 <th className='px-[18px] md:px-6 py-3 font-normal w-[392px]'>
@@ -63,16 +63,16 @@ const Users = () => {
                     key={item.user_id}
                     className={`${
                       index !== usersData.length - 1 && 'border-b'
-                    } cursor-pointer hover:bg-slate-50`}
+                    } cursor-pointer hover:bg-slate-50 `}
                     onClick={() =>
                       navigate(
                         `posts?userId=${item.user_id}&name=${item.name}&email=${item.email}`
                       )
                     }>
-                    <td className='px-6 py-[26px] w-[124px] max-w-[124px] md:w-[200px] md:max-w-[200px] overflow-auto whitespace-nowrap text-ellipsis'>
+                    <td className='px-6 py-[26px] sm:w-[124px] sm:max-w-[124px] md:w-[200px] md:max-w-[200px] overflow-auto whitespace-nowrap text-ellipsis'>
                       {item.name}
                     </td>
-                    <td className='px-6 py-[26px] w-[124px] max-w-[124px] md:w-[264px] md:max-w-[264px] overflow-auto text-ellipsis whitespace-nowrap'>
+                    <td className='px-6 py-[26px] sm:w-[124px] sm:max-w-[124px] md:w-[264px] md:max-w-[264px] overflow-auto text-ellipsis whitespace-nowrap'>
                       {item.email}
                     </td>
                     <td className='px-6 py-[26px] w-[392px] max-w-[392px]'>
