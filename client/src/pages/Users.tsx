@@ -37,19 +37,21 @@ const Users = () => {
 
   return (
     <div className='flex flex-col items-center text-left  py-4 md:py-10'>
-      <div className='space-y-6 w-[641px] md:w-[856px]'>
+      <div className='space-y-6 '>
         <h1 className='text-black font-medium text-[60px]'>Users</h1>
         <div className='border rounded-lg '>
           <table className='  text-xs text-[#535862] w-full'>
             <thead>
               <tr>
-                <th className='px-[18px] md:px-6 py-3 font-normal'>
+                <th className='px-[18px] md:px-6 py-3 font-normal  w-[124px] max-w-[124px] md:w-[200px]'>
                   Full Name
                 </th>
-                <th className='px-[18px] md:px-6 py-3 font-normal'>
+                <th className='px-[18px] md:px-6 py-3 font-normal  w-[124px] md:w-[264px]'>
                   Email Address
                 </th>
-                <th className='px-[18px] md:px-6 py-3 font-normal'>Address</th>
+                <th className='px-[18px] md:px-6 py-3 font-normal w-[392px]'>
+                  Address
+                </th>
               </tr>
             </thead>
 

@@ -53,8 +53,8 @@ const UserPosts = () => {
         isEditing={openPostForm.isEditting}
         initialData={openPostForm.initialData}
       />
-      <div className='flex justify-center text-[#535862] md:px-32 py-4 md:py-10'>
-        <div className='flex flex-col gap-6 w-[564px] md:w-[856px]'>
+      <div className='flex justify-center text-[#535862] py-4 md:py-10'>
+        <div className='flex flex-col gap-6'>
           <div className='flex flex-col gap-4  text-left'>
             <button
               className='flex gap-1 items-center text-sm font-semibold'
