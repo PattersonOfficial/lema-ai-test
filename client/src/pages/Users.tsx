@@ -8,7 +8,9 @@ import toast from 'react-hot-toast';
 const Users = () => {
   const dataPerPage = 4;
   const navigate = useNavigate();
-  const [currentPage, setCurrentPage] = useState(1);
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlPage = urlParams.get('page') || 1;
+  const [currentPage, setCurrentPage] = useState(Number(urlPage));
   const {
     data: userCount,
     isError: isErrorCount,
@@ -23,6 +25,7 @@ const Users = () => {
 
   const handleOnPageChange = (page: number) => {
     setCurrentPage(page);
+    navigate(`/users?page=${page}`);
   };
 
   useEffect(() => {
@@ -33,20 +36,20 @@ const Users = () => {
   }, [isErrorUsers, isErrorUsers]);
 
   return (
-    <div className='flex justify-center items-center'>
-      <div className='space-y-6 text-left sm:px-10 lg:px-32 py-4 sm:py-10'>
-        <h1 className='text-black'>Users</h1>
-        <div className='border rounded-lg max-w-[856px]'>
-          <table className='text-xs text-[#535862] w-full'>
+    <div className='flex flex-col items-center text-left  py-4 md:py-10'>
+      <div className='space-y-6 w-[641px] md:w-[856px]'>
+        <h1 className='text-black font-medium text-[60px]'>Users</h1>
+        <div className='border rounded-lg '>
+          <table className='  text-xs text-[#535862] w-full'>
             <thead>
               <tr>
-                <th className=' px-2 sm:px-6 py-3 font-normal'>Full Name</th>
-                <th className=' px-2 sm:px-6 py-3 font-normal'>
+                <th className='px-[18px] md:px-6 py-3 font-normal'>
+                  Full Name
+                </th>
+                <th className='px-[18px] md:px-6 py-3 font-normal'>
                   Email Address
                 </th>
-                <th className=' px-2 sm:px-6 py-3 font-normal max-w-[80px] sm:max-w-[150px] lg:w-[392px]'>
-                  Address
-                </th>
+                <th className='px-[18px] md:px-6 py-3 font-normal'>Address</th>
               </tr>
             </thead>
 
@@ -64,12 +67,14 @@ const Users = () => {
                         `posts?userId=${item.user_id}&name=${item.name}&email=${item.email}`
                       )
                     }>
-                    <td className='px-2 sm:px-6 py-[26px]'>{item.name}</td>
-                    <td className=' px-2 sm:px-6 py-[26px] w-[80px] sm:w-max overflow-auto sm:overflow-visible text-ellipsis'>
+                    <td className='px-6 py-[26px] w-[124px] max-w-[124px] md:w-[200px] md:max-w-[200px] overflow-auto whitespace-nowrap text-ellipsis'>
+                      {item.name}
+                    </td>
+                    <td className='px-6 py-[26px] w-[124px] max-w-[124px] md:w-[264px] md:max-w-[264px] overflow-auto text-ellipsis whitespace-nowrap'>
                       {item.email}
                     </td>
-                    <td className=' px-2 sm:px-6 py-[26px]'>
-                      <p className='text-ellipsis whitespace-nowrap overflow-auto w-[80px] sm:w-[150px] lg:w-[392px]'>
+                    <td className='px-6 py-[26px] w-[392px] max-w-[392px]'>
+                      <p className='text-ellipsis whitespace-nowrap overflow-auto '>
                         {item.address}
                       </p>
                     </td>
@@ -83,14 +88,13 @@ const Users = () => {
             </div>
           )}
         </div>
-        <div className='max-w-[856px]'>
-          <Pagination
-            totalData={userCount?.count || 0}
-            current={currentPage}
-            onPageClick={handleOnPageChange}
-            dataPerPage={dataPerPage}
-          />
-        </div>
+
+        <Pagination
+          totalData={userCount?.count || 0}
+          current={currentPage}
+          onPageClick={handleOnPageChange}
+          dataPerPage={dataPerPage}
+        />
       </div>
     </div>
   );

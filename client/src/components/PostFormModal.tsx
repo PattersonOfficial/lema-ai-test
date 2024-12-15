@@ -119,19 +119,24 @@ const PostFormModal = ({
       className='flex items-center justify-center fixed inset-0 bg-black bg-opacity-30 z-10'
       onClick={handleClose}>
       <div
-        className='bg-white w-11/12 md:w-1/2 max-w-[500px] mx-auto rounded-lg shadow-lg p-4'
+        className='bg-white rounded-lg shadow-lg p-6 w-[679px]'
         onClick={(e) => e.stopPropagation()}>
         <div className='space-y-6 text-left'>
-          <h1 className='text-black'>{isEditing ? 'Edit Post' : 'New Post'}</h1>
+          <h1 className='text-black text-3xl font-medium'>
+            {isEditing ? 'Edit Post' : 'New Post'}
+          </h1>
           <form
             className='space-y-6 text-sm'
             role='form'
             onSubmit={handleSubmit(onSubmit)}>
             <div className='flex flex-col gap-[10px]'>
-              <label htmlFor='title'>Post title</label>
+              <label htmlFor='title' className='text-lg font-medium'>
+                Post title
+              </label>
               <input
                 id='title'
                 type='text'
+                className='rounded'
                 {...register('title')}
                 onChange={(e) => {
                   setFormData({ ...formData, title: e.target.value });
@@ -139,6 +144,7 @@ const PostFormModal = ({
                 }}
                 disabled={isPending}
                 value={formData.title}
+                placeholder='Give your post a title'
               />
               {errors.title && (
                 <p className='text-red-500 text-xs'>{errors.title.message}</p>
@@ -146,10 +152,12 @@ const PostFormModal = ({
             </div>
 
             <div className='flex flex-col gap-[10px]'>
-              <label htmlFor='content'>Post content</label>
+              <label htmlFor='content' className='text-lg font-medium'>
+                Post content
+              </label>
               <textarea
                 id='content'
-                rows={4}
+                className='min-h-[179px] resize-none rounded'
                 {...register('body')}
                 onChange={(e) => {
                   setFormData({ ...formData, body: e.target.value });
@@ -157,22 +165,23 @@ const PostFormModal = ({
                 }}
                 disabled={isPending}
                 value={formData.body}
+                placeholder='Write something mind-blowing'
               />
               {errors.body && (
                 <p className='text-red-500 text-xs'>{errors.body.message}</p>
               )}
             </div>
 
-            <div className='flex justify-end gap-2'>
+            <div className='flex justify-end gap-2 text-sm'>
               <button
-                className='px-6 py-3 rounded-md border'
+                className='px-4 py-[11.5px] rounded-md border'
                 disabled={isPending}
                 type='button'
                 onClick={handleClose}>
                 Cancel
               </button>
               <button
-                className='flex items-center gap-2 px-6 py-3 rounded-md bg-[#334155] text-white font-semibold'
+                className='flex items-center gap-2 px-4 py-[9.5px] rounded-md bg-[#334155] text-white font-semibold font-manrope'
                 disabled={isPending}
                 type='submit'>
                 <span>{isEditing ? 'Update' : 'Publish'}</span>

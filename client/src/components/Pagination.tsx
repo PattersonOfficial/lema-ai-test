@@ -41,7 +41,7 @@ const Pagination = ({
 
   return (
     <div
-      className='flex justify-end flex-wrap items-center gap-4 sm:gap-10 text-xs sm:text-sm'
+      className='flex justify-end flex-wrap items-center gap-[42px] sm:gap-10 text-xs font-medium sm:text-sm'
       role='navigation'>
       <button
         className={`flex gap-1 sm:gap-2 font-semibold ${
@@ -53,7 +53,7 @@ const Pagination = ({
         <span className='hidden sm:inline'>Previous</span>
       </button>
       <div className='space-x-[2px] sm:space-x-1'>
-        {pageNumbers.map((val, i: number) => (
+        {(pageNumbers.length ? pageNumbers : [1]).map((val, i: number) => (
           <button
             key={i}
             className={`${

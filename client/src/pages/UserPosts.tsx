@@ -44,7 +44,7 @@ const UserPosts = () => {
   }
 
   return (
-    <div className='flex justify-center items-center'>
+    <>
       <PostFormModal
         isOpen={openPostForm.isOpen}
         onClose={() =>
@@ -53,45 +53,47 @@ const UserPosts = () => {
         isEditing={openPostForm.isEditting}
         initialData={openPostForm.initialData}
       />
-      <div className='flex justify-center flex-col gap-6 text-[#535862] sm:px-10 md:px-32 py-4 sm:py-10 max-w-[1000px]'>
-        <div className='flex flex-col gap-4 text-black text-left'>
-          <button
-            className='flex gap-1 items-center'
-            onClick={() => navigate('/users')}>
-            <img src={ArrowIcon} alt='back' />
-            <span>Back to Users</span>
-          </button>
-          <h1 className='text-3xl font-medium'>{name}</h1>
-          <div className='text-sm'>
-            <span>{email}</span>
-            <span> &bull; </span>
-            <span className='font-medium'>
-              {data?.length || 0} Post{data?.length > 1 && 's'}
-            </span>
+      <div className='flex justify-center text-[#535862] md:px-32 py-4 md:py-10'>
+        <div className='flex flex-col gap-6 w-[564px] md:w-[856px]'>
+          <div className='flex flex-col gap-4  text-left'>
+            <button
+              className='flex gap-1 items-center text-sm font-semibold'
+              onClick={() => navigate(-1)}>
+              <img src={ArrowIcon} alt='back' />
+              <span>Back to Users</span>
+            </button>
+            <h1 className='text-3xl font-medium text-black'>{name}</h1>
+            <div className='text-sm'>
+              <span>{email}</span>
+              <span> &bull; </span>
+              <span className='font-medium'>
+                {data?.length || 0} Post{data?.length > 1 && 's'}
+              </span>
+            </div>
+          </div>
+          <div className='grid grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-[23px] w-fit'>
+            <NewPostCard
+              onClick={() =>
+                setOpenPostForm({
+                  isOpen: true,
+                  isEditting: false,
+                  initialData: null,
+                })
+              }
+            />
+            {data?.map((item: PostType, index: number) => (
+              <PostCard
+                id={item.id as string}
+                title={item.title}
+                content={item.body}
+                key={index}
+                onEdit={() => handleEditPost(item)}
+              />
+            ))}
           </div>
         </div>
-        <div className='grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6'>
-          <NewPostCard
-            onClick={() =>
-              setOpenPostForm({
-                isOpen: true,
-                isEditting: false,
-                initialData: null,
-              })
-            }
-          />
-          {data?.map((item: PostType, index: number) => (
-            <PostCard
-              id={item.id as string}
-              title={item.title}
-              content={item.body}
-              key={index}
-              onEdit={() => handleEditPost(item)}
-            />
-          ))}
-        </div>
       </div>
-    </div>
+    </>
   );
 };
 
